@@ -1,6 +1,7 @@
 import { useFormik, FormikProps } from "formik";
 import * as Yup from 'yup';
 import Input from "../Common/Input/Input";
+import { Button } from "../styled-components/Button.style";
 import styles from './AddTaskForm.module.scss';
 
 interface formValueTypes {
@@ -47,7 +48,7 @@ const AddTaskForm = () => {
         name="description"
         type="textarea"
       />
-      <button disabled={!formik.isValid} type="submit">Submit</button>
+      <Button disabled={!formik.isValid} type="submit">Submit</Button>
     </form>
   );
 };

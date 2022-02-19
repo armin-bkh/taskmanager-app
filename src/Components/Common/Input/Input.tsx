@@ -10,14 +10,14 @@ interface inputProps {
 }
 
 
-const Input = ({ formik, type, lbl, id, name }: inputProps) => {
+const Input = ({ formik, type, lbl, id, name, placeholder }: inputProps) => {
     return (
         <InputContainer type={type}>
             <label htmlFor={id}>{lbl}:</label>
             {
                 type === "text" ? (
-                    <input className="input" type={type} id={id} {...formik.getFieldProps(name)} />
-                ) : <textarea className="input" id={id} {...formik.getFieldProps(name)}></textarea>
+                    <input placeholder={placeholder} className="input" type={type} id={id} {...formik.getFieldProps(name)} />
+                ) : <textarea placeholder={placeholder} className="input" id={id} {...formik.getFieldProps(name)}></textarea>
 
             }
             {formik.touched[name] && formik.errors[name] && (
