@@ -1,12 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
-import Layout from './Layout/Layout';
+import { Routes, Route, useRoutes } from 'react-router-dom';
+import routes from './Routes/routes';
 
 const App= () => {
-  return ( 
-    <Routes>
-      <Route path="/" element={<Layout>are</Layout>} />
-    </Routes>
-   );
+  const allRoutes = useRoutes(routes);
+  return allRoutes;
 }
  
 export default App;
