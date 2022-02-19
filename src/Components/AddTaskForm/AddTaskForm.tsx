@@ -26,12 +26,13 @@ const AddTaskForm = () => {
     const { addTaskHandler } = useTasksActions();
 
     const onSubmit = (values: formValueTypes) => {
+      const nowTime = new Date().toLocaleString();
         const task: taskItemType = {
             ...values,
             id: new Date().getTime(),
             status: "todo",
-            created: "sd",
-            updated: "sdf",
+            created: nowTime,
+            updated: nowTime,
         };
         addTaskHandler(task);
     };
