@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useContext, useReducer } from "react";
 import { TaskActionsContext, TaskContext } from "../../Context/TaskContext";
 import { actionType, TasksType } from "./taskProviderTypes.type";
 
@@ -29,3 +29,11 @@ const TaskProvider = ({ children }: taskProviderProps) => {
 };
 
 export default TaskProvider;
+
+
+export const useTasks = () => useContext(TaskContext);
+
+export const useTasksActions = () => {
+    const dispatch = useContext(TaskActionsContext);
+    return dispatch;
+}
