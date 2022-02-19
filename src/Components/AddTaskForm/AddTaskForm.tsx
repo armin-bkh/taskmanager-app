@@ -35,6 +35,7 @@ const AddTaskForm = () => {
             updated: nowTime,
         };
         addTaskHandler(task);
+        formik.handleReset();
     };
 
     const formik: FormikProps<formValueTypes> = useFormik<formValueTypes>({

@@ -1,5 +1,6 @@
 import { Head } from "./Head.style";
 import Me from "../../Assets/Images/me.jpeg";
+import { FaTasks } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -8,7 +9,10 @@ const Header = () => {
         <img src={Me} alt="Me" />
         armin bakhshi
       </div>
-      <span className="logo">Task Manager</span>
+      <span className="logo">
+        <span>Task Manager</span>
+        <FaTasks />
+      </span>
     </Head>
   );
 };

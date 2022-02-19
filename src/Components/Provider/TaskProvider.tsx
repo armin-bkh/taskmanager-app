@@ -1,4 +1,4 @@
-import { useContext, useReducer } from "react";
+import { useContext, useEffect, useReducer } from "react";
 import { TaskActionsContext, TaskContext } from "../../Context/TaskContext";
 import {
   actionCases,
@@ -17,7 +17,11 @@ const initialState = {
 
 const reducer = (state: TasksType, action: actionType) => {
   switch (action.type) {
-    case actionCases.ADDTASK: {
+    case "FETCH": {
+    const savedTasks = JSON.parse(localStorage.getItem("taskManagerData") || '');
+    return { tasks: savedTasks || [] }
+    }
+    case "ADDTASK": {
       const updatedTasks = [...state.tasks, { ...action.payload }];
       const sortedTasks = updatedTasks.sort(
         (a: taskItemType, b: taskItemType) =>
@@ -32,6 +36,15 @@ const reducer = (state: TasksType, action: actionType) => {
 
 const TaskProvider = ({ children }: taskProviderProps) => {
   const [task, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    dispatch({type: actionCases.FETCH})
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("taskManagerData", JSON.stringify(task.tasks));
+  }, [task])
+  
   return (
     <TaskContext.Provider value={task}>
       <TaskActionsContext.Provider value={dispatch}>

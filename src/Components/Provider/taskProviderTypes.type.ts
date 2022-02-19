@@ -12,13 +12,18 @@ export type TasksType = {
 }
 
 export type actionWithPayloadType = {
-    type: string,
+    type: "ADDTASK",
     payload: taskItemType
 }
 
+export type actionWithoutPayoladType = {
+    type: "FETCH",
+}
 
-export type actionType = actionWithPayloadType;
+
+export type actionType =  actionWithoutPayoladType | actionWithPayloadType;
 
 export enum actionCases {
+    FETCH = "FETCH",
     ADDTASK = "ADDTASK",
 }

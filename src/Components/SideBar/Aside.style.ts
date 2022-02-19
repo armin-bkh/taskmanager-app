@@ -1,12 +1,30 @@
 import styled from "styled-components";
 
 export const Aside = styled.aside`
-  height: 100%;
+  position: relative;
+  background: #fcfcfc;
   padding: 20px 0;
   box-shadow: 0 5px 5px #dbdbdb;
   width: 50px;
   display: flex;
   justify-content: center;
+  height: calc(100vh - 80px);
+
+  @media screen and (max-width: 767px) {
+    height: calc(100vh - 65px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-left: 5px #fff solid;
+    right: -20px;
+    top: -1px;
+    transform: rotate(45deg);
+    border-radius: 50%;
+  }
 
   & .navBar {
     & .nav {
@@ -34,8 +52,8 @@ export const NavItem = styled.li`
     justify-content: center;
     transition: all 0.3s ease;
 
-    @media screen and (max-width: 767px){
-        font-size: 18px;
+    @media screen and (max-width: 767px) {
+      font-size: 18px;
     }
 
     ${(props) => ({

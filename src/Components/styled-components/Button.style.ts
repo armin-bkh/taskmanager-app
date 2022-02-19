@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+interface buttonProps {
+  disabled: boolean;
+}
+
+export const Button = styled.button<buttonProps>`
   position: relative;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 4px;
   background: #7dd3fc;
   color: #fff;
   outline: none;
@@ -11,15 +15,24 @@ export const Button = styled.button`
   overflow: hidden;
   z-index: 2;
   font-weight: 700;
+  outline: #7dd3fc solid 1px;
+  outline-offset: 2px;
+  transition: all 0.3s ease;
 
-  @media screen and (max-width: 767px){
-      width: 100%;
+  @media screen and (max-width: 767px) {
+    width: 100%;
   }
-
   &:hover {
     &::after {
-      height: 100%;
+      ${({ disabled }) => {
+        if (!disabled)
+          return {
+            height: "100%",
+            boxShadow: "0 0 5px #0ea5e9",
+          };
+      }}
     }
+
   }
 
   &::after {
@@ -30,7 +43,14 @@ export const Button = styled.button`
     top: 0;
     height: 0;
     width: 100%;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     z-index: -1;
   }
+
+  ${({ disabled }) => {
+    if (disabled)
+      return {
+        opacity: 0.5,
+      };
+  }}
 `;
