@@ -1,6 +1,6 @@
 import { useContext, useReducer } from "react";
 import { TaskActionsContext, TaskContext } from "../../Context/TaskContext";
-import { actionType, TasksType } from "./taskProviderTypes.type";
+import { actionCases, actionType, taskItemType, TasksType } from "./taskProviderTypes.type";
 
 interface taskProviderProps {
   children: React.ReactChild;
@@ -12,6 +12,9 @@ const initialState = {
 
 const reducer = (state: TasksType, action: actionType) => {
   switch (action.type) {
+      case actionCases.ADDTASK: {
+        return { tasks: [...state.tasks, {...action.payload}] }
+      }
     default:
       return state;
   }
@@ -35,5 +38,8 @@ export const useTasks = () => useContext(TaskContext);
 
 export const useTasksActions = () => {
     const dispatch = useContext(TaskActionsContext);
-    return dispatch;
+    const addTaskHandler = (task: taskItemType) => {
+        dispatch({type: actionCases.ADDTASK, payload: task})
+    }
+    return { addTaskHandler };
 }

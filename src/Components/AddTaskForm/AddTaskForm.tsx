@@ -1,12 +1,14 @@
 import { useFormik, FormikProps } from "formik";
 import * as Yup from 'yup';
 import Input from "../Common/Input/Input";
+import { useTasksActions } from "../Provider/TaskProvider";
+import { taskItemType } from "../Provider/taskProviderTypes.type";
 import { Button } from "../styled-components/Button.style";
 import styles from './AddTaskForm.module.scss';
 
 interface formValueTypes {
   title: string;
-  description?: string;
+  description: string;
 }
 
 const initialValues = {
@@ -19,12 +21,22 @@ const validationSchema = Yup.object({
     description: Yup.string().notRequired(),
 })
 
-const onSubmit = (values: formValueTypes) => {
-  console.log(values);
-};
 
 const AddTaskForm = () => {
-  const formik: FormikProps<formValueTypes> = useFormik<formValueTypes>({
+    const { addTaskHandler } = useTasksActions();
+
+    const onSubmit = (values: formValueTypes) => {
+        const task: taskItemType = {
+            ...values,
+            id: new Date().getTime(),
+            status: "todo",
+            created: "sd",
+            updated: "sdf",
+        };
+        addTaskHandler(task);
+    };
+
+    const formik: FormikProps<formValueTypes> = useFormik<formValueTypes>({
     initialValues,
     onSubmit,
     validationSchema,

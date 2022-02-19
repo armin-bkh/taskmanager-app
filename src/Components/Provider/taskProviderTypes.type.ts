@@ -1,6 +1,6 @@
 export type taskItemType = {
     id: number,
-    value: string,
+    title: string,
     description: string,
     status: "completed" | "in progress" | "todo",
     created: string,
@@ -16,8 +16,9 @@ export type actionWithPayloadType = {
     payload: taskItemType
 }
 
-export type actionWithoutPayload = {
-    type: string
-}
 
-export type actionType = actionWithPayloadType | actionWithoutPayload;
+export type actionType = actionWithPayloadType;
+
+export enum actionCases {
+    ADDTASK = "ADDTASK",
+}
