@@ -1,10 +1,11 @@
+import AddTaskForm from "../Components/AddTaskForm/AddTaskForm";
 import Layout from "../Layout/Layout";
 
 const AddTaskPage = () =>{
     return (
         <Layout>
             <section>
-                <h1>Add Task Page</h1>
+                <AddTaskForm />
             </section>
         </Layout>
     )

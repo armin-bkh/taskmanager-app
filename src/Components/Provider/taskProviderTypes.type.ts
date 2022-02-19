@@ -3,6 +3,8 @@ export type taskItemType = {
     value: string,
     description: string,
     status: "completed" | "in progress" | "todo",
+    created: string,
+    updated: string,
 }
 
 export type TasksType = {
