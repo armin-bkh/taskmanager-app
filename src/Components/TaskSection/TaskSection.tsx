@@ -10,8 +10,6 @@ interface taskSectionProps {
 }
 
 const TaskSection = ({ title, tasks }: taskSectionProps) => {
-  console.log(tasks);
-
   return (
     <div className={styles.taskSection}>
       <header className={styles.header}>

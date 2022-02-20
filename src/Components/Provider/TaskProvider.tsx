@@ -1,4 +1,5 @@
 import { useContext, useEffect, useReducer } from "react";
+import toast from "react-hot-toast";
 import { TaskActionsContext, TaskContext } from "../../Context/TaskContext";
 import {
   actionCases,
@@ -64,9 +65,15 @@ export const useTasks = () => useContext(TaskContext);
 export const useTasksActions = () => {
   const dispatch = useContext(TaskActionsContext);
   const addTaskHandler = (task: taskItemType) => {
+    toast.success(`${task.title} added`, {
+      duration: 4000
+    });
     dispatch({ type: actionCases.ADDTASK, payload: task });
   };
   const removeTaskHandler = (task: taskItemType) => {
+    toast.success(`${task.title} removed`, {
+      duration: 4000
+    });
     dispatch({ type: actionCases.REMOVETASK, payload: task })
   }
   return { addTaskHandler, removeTaskHandler };
