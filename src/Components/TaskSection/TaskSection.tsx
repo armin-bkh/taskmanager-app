@@ -2,6 +2,7 @@ import { taskItemType } from "../Provider/taskProviderTypes.type";
 import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import styles from "./TaskSection.module.scss";
+import TaskItem from "../TaskItem/TaskItem";
 
 interface taskSectionProps {
   title: string;
@@ -13,8 +14,8 @@ const TaskSection = ({ title, tasks }: taskSectionProps) => {
 
   return (
     <div className={styles.taskSection}>
-      <header>
-        <div>
+      <header className={styles.header}>
+        <div className={styles.titleContainer}>
           <h3 className={styles.title}>{title}</h3>
           <span className={styles.badge}>{tasks.length}</span>
         </div>
@@ -25,6 +26,12 @@ const TaskSection = ({ title, tasks }: taskSectionProps) => {
           <BiPlus />
         </Link>
       </header>
+      <div>
+        {tasks.length > 0 &&
+          tasks.map((task) => (
+            <TaskItem key={task.id} task={task} />
+          ))}
+      </div>
     </div>
   );
 };

@@ -1,13 +1,13 @@
 .taskSection{
     border-radius: 10px;
-    background-color: #e5e7eb;
+    background-color: #f1f5f9;
     padding: 1rem;
 
-    header{
+    .header{
         display: flex;
-        flex-flow: column nowrap;
+        flex-flow: column wrap;
 
-        div{
+        .titleContainer{
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -15,17 +15,25 @@
 
             .title{
                 font-size: 25px;
+                text-transform: capitalize;
             }
 
             .badge{
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 color: #6366f1;
+                background: #d1d5db;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
             }
         }
 
         .addBtn{
             text-align: center;
             width: 100%;
-            background-color: #f9fafb;
+            background-color: #d1d5db;
             border-radius: 5px;
             padding: 5px 0;
             color: #6366f1;

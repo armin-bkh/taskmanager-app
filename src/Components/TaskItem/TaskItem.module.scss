@@ -1,0 +1,28 @@
+.taskItem{
+    display: flex;
+    flex-flow: column wrap;
+    background: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+
+    .header{
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+    }
+
+    .description{
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 10px;
+        color: #7c7c7c;
+    }
+}
