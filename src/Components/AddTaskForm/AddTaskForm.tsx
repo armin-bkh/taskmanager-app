@@ -1,10 +1,13 @@
 import { useFormik, FormikProps } from "formik";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import SelectBox from "../Common/SelectBox/SelectBox";
 import { useTasksActions } from "../Provider/TaskProvider";
 import { taskItemType } from "../Provider/taskProviderTypes.type";
 import { Button } from "../styled-components/Button.style";
+import queryString from "query-string";
 import styles from "./AddTaskForm.module.scss";
 
 const options = [
@@ -50,6 +53,7 @@ const customStyles = {
 };
 
 const AddTaskForm = () => {
+  const { search } = useLocation();
   const { addTaskHandler } = useTasksActions();
 
   const onSubmit = (values: formValueTypes) => {
@@ -70,6 +74,13 @@ const AddTaskForm = () => {
     validationSchema,
     validateOnMount: true,
   });
+
+  useEffect(() => {
+    if (search) {
+      const parsedSearch = queryString.parse(search);
+      formik.setFieldValue("status", parsedSearch.status);
+    }
+  }, [search]);
 
   return (
     <form className={styles.formContainer} onSubmit={formik.handleSubmit}>
