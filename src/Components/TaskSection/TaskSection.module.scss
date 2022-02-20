@@ -1,0 +1,34 @@
+.taskSection{
+    border-radius: 10px;
+    background-color: #e5e7eb;
+    padding: 1rem;
+
+    header{
+        display: flex;
+        flex-flow: column nowrap;
+
+        div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .title{
+                font-size: 25px;
+            }
+
+            .badge{
+                color: #6366f1;
+            }
+        }
+
+        .addBtn{
+            text-align: center;
+            width: 100%;
+            background-color: #f9fafb;
+            border-radius: 5px;
+            padding: 5px 0;
+            color: #6366f1;
+        }
+    }
+}

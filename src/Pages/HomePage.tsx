@@ -1,11 +1,13 @@
+import { Section } from "../Components/styled-components/Section.style";
+import TaskList from "../Components/TaskList/TaskList";
 import Layout from "../Layout/Layout";
 
 const HomePage = () => {
   return (
     <Layout>
-      <section>
-        <h1>Home Page</h1>
-      </section>
+      <Section>
+        <TaskList />
+      </Section>
     </Layout>
   );
 };
