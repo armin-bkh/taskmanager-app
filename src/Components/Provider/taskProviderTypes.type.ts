@@ -2,7 +2,7 @@ export type taskItemType = {
     id: number,
     title: string,
     description: string,
-    status: "completed" | "in progress" | "todo",
+    status: string,
     created: string,
     updated: string,
 }

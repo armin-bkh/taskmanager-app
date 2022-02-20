@@ -13,7 +13,7 @@ interface inputProps {
 const Input = ({ formik, type, lbl, id, name, placeholder }: inputProps) => {
     return (
         <InputContainer type={type}>
-            <label htmlFor={id}>{lbl}:</label>
+            <label htmlFor={id}>{lbl}: {type === "textarea" && <span className="notRequired">(not required)</span>}</label>
             {
                 type === "text" ? (
                     <input placeholder={placeholder} className="input" type={type} id={id} {...formik.getFieldProps(name)} />
@@ -21,7 +21,7 @@ const Input = ({ formik, type, lbl, id, name, placeholder }: inputProps) => {
 
             }
             {formik.touched[name] && formik.errors[name] && (
-                <span>{formik.errors[name]}</span>
+                <span className="error">{formik.errors[name]}</span>
             )}
         </InputContainer>
     )

@@ -12,24 +12,31 @@ export const InputContainer = styled.fieldset<inputContainerProps>`
   & label {
     text-transform: capitalize;
     margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+
+    .notRequired{
+      font-size: 9px;
+      margin-left: 5px;
+    }
   }
 
   & .input {
     padding: 10px 15px;
-    border: none;
+    border: 1.5px solid #0891b2;
     outline: none;
-    box-shadow: 0 0 5px #dbdbdb;
-    margin-bottom: 3px;
+    background: #fafafa;
     border-radius: 5px;
     transition: all .3s ease;
     height: ${(props) => (props.type === "textarea" ? "150px" : "auto")};
     resize: none;
 
     &:focus{
-        box-shadow: 0 0 10px #dbdbdb;
+        box-shadow: 0 0 5px #0891b2;
     }
   }
-  & span {
+  & .error {
+    margin-top: 3px;
     color: #dc2626;
     margin-left: 10px;
     font-size: 12px;
