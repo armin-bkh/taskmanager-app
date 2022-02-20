@@ -1,6 +1,6 @@
 import { useFormik, FormikProps } from "formik";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import SelectBox from "../Common/SelectBox/SelectBox";
@@ -35,6 +35,7 @@ const validationSchema = Yup.object({
 
 const customStyles = {
   control: (styles: any, { isFocused }: any) => ({
+    transition: "all .3s ease",
     display: "flex",
     borderRadius: "5px",
     backgroundColor: "white",
@@ -54,6 +55,7 @@ const customStyles = {
 
 const AddTaskForm = () => {
   const { search } = useLocation();
+  const navgiate = useNavigate();
   const { addTaskHandler } = useTasksActions();
 
   const onSubmit = (values: formValueTypes) => {
@@ -66,6 +68,7 @@ const AddTaskForm = () => {
     };
     addTaskHandler(task);
     formik.handleReset();
+    navgiate("/");
   };
 
   const formik: FormikProps<formValueTypes> = useFormik<formValueTypes>({
@@ -81,6 +84,10 @@ const AddTaskForm = () => {
       formik.setFieldValue("status", parsedSearch.status);
     }
   }, [search]);
+
+  useEffect(()=> {
+    if(formik.values.status) formik.setFieldTouched("status", true)
+  }, [formik.values.status])
 
   return (
     <form className={styles.formContainer} onSubmit={formik.handleSubmit}>

@@ -5,12 +5,13 @@ export const Aside = styled.aside`
   background: #fcfcfc;
   padding: 20px 0;
   box-shadow: 0 5px 5px #dbdbdb;
-  width: 50px;
+  width: 70px;
   display: flex;
   justify-content: center;
   height: calc(100vh - 80px);
 
   @media screen and (max-width: 767px) {
+    width: 50px;
     height: calc(100vh - 65px);
   }
 
@@ -44,22 +45,33 @@ export const NavItem = styled.li`
     margin-bottom: 5px;
   }
 
-  & a {
+  & .active {
+    ${(props) => ({
+      background: props.color,
+      color: "#fff",
+    })}
+  }
+
+  & .notActive {
+    ${(props) => ({
+      border: `1px solid ${props.color}`,
+      color: props.color,
+    })}
+  }
+
+  & .link {
     padding: 5px;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    border: 1px solid ${(props) => props.color};
+    font-size: 24px;
 
     @media screen and (max-width: 767px) {
       font-size: 18px;
     }
-
-    ${(props) => ({
-      border: `1px solid ${props.color}`,
-      color: props.color,
-    })}
 
     &:hover {
       ${(props) => ({

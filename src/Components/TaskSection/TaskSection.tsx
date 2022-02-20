@@ -24,7 +24,7 @@ const TaskSection = ({ title, tasks }: taskSectionProps) => {
           <BiPlus />
         </Link>
       </header>
-      <div>
+      <div className={styles.list}>
         {tasks.length > 0 &&
           tasks.map((task) => (
             <TaskItem key={task.id} task={task} />

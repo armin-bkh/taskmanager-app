@@ -38,7 +38,7 @@ export const Head = styled.header`
     align-items: center;
 
     & span {
-      margin-right: 7px;
+      margin-left: 7px;
     }
   }
 `;

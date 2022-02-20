@@ -10,8 +10,8 @@ const Header = () => {
         armin bakhshi
       </div>
       <span className="logo">
-        <span>Task Manager</span>
         <FaTasks />
+        <span>Task Manager</span>
       </span>
     </Head>
   );

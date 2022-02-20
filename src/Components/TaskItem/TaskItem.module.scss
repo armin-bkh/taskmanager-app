@@ -3,10 +3,12 @@
   flex-flow: column wrap;
   background: #fff;
   padding: 10px;
-  margin: 10px 0;
   border-radius: 5px;
   position: relative;
 
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
   .header {
     margin-bottom: 15px;
     display: flex;
@@ -41,11 +43,11 @@
     border-radius: 5px;
     z-index: 2;
 
-    button{
-        padding: 2px;
-        display: flex;
-        justify-content: flex;
-        align-items: center;
+    button {
+      padding: 2px;
+      display: flex;
+      justify-content: flex;
+      align-items: center;
     }
     .trash {
       color: #dc2626;
@@ -61,7 +63,6 @@
       background: #ccfbf1;
     }
 
-
     &::before {
       content: "";
       position: absolute;
@@ -75,15 +76,15 @@
     }
 
     &::after {
-        content: "";
-        width: 7px;
-        height: 7px;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background-color: red;
-        z-index: 10;
-        background: #818cf8;
-      }
+      content: "";
+      width: 7px;
+      height: 7px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: red;
+      z-index: 10;
+      background: #818cf8;
+    }
   }
 }

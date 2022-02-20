@@ -15,7 +15,14 @@ const SideBar = () => {
         <ul className="nav">
           {links.map((link) => (
             <NavItem key={link.to} color={link.color}>
-              <NavLink to={link.to}>{link.icon}</NavLink>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) =>
+                  "link " + (isActive ? "active" : "notActive")
+                }
+              >
+                {link.icon}
+              </NavLink>
             </NavItem>
           ))}
         </ul>
