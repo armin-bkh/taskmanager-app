@@ -16,7 +16,7 @@ const Input = ({ formik, type, lbl, id, name, placeholder }: inputProps) => {
             <label htmlFor={id}>{lbl}: {type === "textarea" && <span className="notRequired">(not required)</span>}</label>
             {
                 type === "text" ? (
-                    <input placeholder={placeholder} className="input" type={type} id={id} {...formik.getFieldProps(name)} />
+                    <input autoFocus placeholder={placeholder} className="input" type={type} id={id} {...formik.getFieldProps(name)} />
                 ) : <textarea placeholder={placeholder} className="input" id={id} {...formik.getFieldProps(name)}></textarea>
 
             }

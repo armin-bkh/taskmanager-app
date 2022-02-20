@@ -11,6 +11,7 @@ interface selectBoxProps {
   formik: any;
   name: string;
   placeholder: string;
+  styles: any;
 }
 
 const SelectBox = ({
@@ -21,6 +22,7 @@ const SelectBox = ({
   formik,
   name,
   placeholder,
+  styles,
 }: selectBoxProps) => {
   const defaultValue = (val: string) => {
     return options.find((option) => option.value === val) || null;
@@ -34,6 +36,7 @@ const SelectBox = ({
     <InputContainer type="text">
       <label htmlFor={id}>{lbl}:</label>
       <Select
+        styles={styles}
         placeholder={placeholder}
         id={id}
         options={options}
@@ -42,7 +45,7 @@ const SelectBox = ({
         onBlur={() => formik.setFieldTouched("status", true)}
       />
       {formik.touched[name] && formik.errors[name] && (
-          <span className="error">{formik.errors[name]}</span>
+        <span className="error">{formik.errors[name]}</span>
       )}
     </InputContainer>
   );

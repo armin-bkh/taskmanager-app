@@ -1,5 +1,9 @@
 .formContainer{
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+
+    .title{
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
 }

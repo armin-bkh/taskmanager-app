@@ -1,5 +1,4 @@
 import { useFormik, FormikProps } from "formik";
-import { useEffect } from "react";
 import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import SelectBox from "../Common/SelectBox/SelectBox";
@@ -31,6 +30,25 @@ const validationSchema = Yup.object({
   description: Yup.string().notRequired(),
 });
 
+const customStyles = {
+  control: (styles: any, { isFocused }: any) => ({
+    display: "flex",
+    borderRadius: "5px",
+    backgroundColor: "white",
+    outline: isFocused ? "none" : "none",
+    boxShadow: isFocused ? "0 0 5px #0891b2" : "none",
+    border: "1.5px solid #0891b2",
+  }),
+  option: (styles: any, { data, isDisabled, isFocused, isSelected }: any) => {
+    return {
+      ...styles,
+      backgroundColor: isSelected ? "#ccc" : "#fff",
+      color: "#000",
+      cursor: isDisabled ? "not-allowed" : "default",
+    };
+  },
+};
+
 const AddTaskForm = () => {
   const { addTaskHandler } = useTasksActions();
 
@@ -50,15 +68,12 @@ const AddTaskForm = () => {
     initialValues,
     onSubmit,
     validationSchema,
-    validateOnMount: true
+    validateOnMount: true,
   });
-
-  useEffect(()=> {
-    formik.setFieldTouched("status", true)
-  }, [formik.values.status])
 
   return (
     <form className={styles.formContainer} onSubmit={formik.handleSubmit}>
+      <h1 className={styles.title}>Add Task</h1>
       <Input
         formik={formik}
         lbl="title"
@@ -75,6 +90,7 @@ const AddTaskForm = () => {
         name="status"
         formik={formik}
         placeholder="select..."
+        styles={customStyles}
       />
       <Input
         formik={formik}
