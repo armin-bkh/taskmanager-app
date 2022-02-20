@@ -29,6 +29,9 @@ const reducer = (state: TasksType, action: actionType) => {
       );
       return { tasks: sortedTasks };
     }
+    case "REMOVETASK": {
+      return { tasks: state.tasks.filter(task => task.id !== action.payload.id) }
+    }
     default:
       return state;
   }
