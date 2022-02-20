@@ -66,5 +66,8 @@ export const useTasksActions = () => {
   const addTaskHandler = (task: taskItemType) => {
     dispatch({ type: actionCases.ADDTASK, payload: task });
   };
-  return { addTaskHandler };
+  const removeTaskHandler = (task: taskItemType) => {
+    dispatch({ type: actionCases.REMOVETASK, payload: task })
+  }
+  return { addTaskHandler, removeTaskHandler };
 };
