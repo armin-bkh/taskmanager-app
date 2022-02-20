@@ -13,9 +13,9 @@ const TaskItem = ({ task }: taskItemProps) => {
         <BsDot />
         {task.title}
       </header>
-      <p className={styles.description}>
-        {task.description || "---- has no description"}
-      </p>
+      {task.description && (
+        <p className={styles.description}>{task.description}</p>
+      )}
       <footer className={styles.footer}>
         <span>created: {task.created}</span>
         <span>updated: {task.updated}</span>
