@@ -120,5 +120,12 @@ export const useTasksActions = () => {
     dispatch({ type: actionCases.EDITTASK, payload: task });
   };
 
-  return { addTaskHandler, removeTaskHandler, editTaskHandler };
+  const completeTaskHandler = (task: taskItemType) => {
+    toast.success(`${task.title} completed!`, {
+      duration: 4000,
+    });
+    dispatch({ type: actionCases.COMPLETETASK, payload: task });
+  }
+
+  return { addTaskHandler, removeTaskHandler, editTaskHandler, completeTaskHandler };
 };
