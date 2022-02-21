@@ -7,9 +7,21 @@ import { NavLink } from "react-router-dom";
 const links = [
   { to: "/", icon: <IoHome />, color: "#f08206" },
   { to: "/add-task", icon: <AiOutlinePlus />, color: "#61af88" },
-  { href: "https://www.github.com/armin-bkh", icon: <FaGithub />, color: "#181818" },
-  { href: "https://www.linkedin.com/in/arminbkh", icon: <FaLinkedinIn />, color: "#3979f0" },
-  { href: "https://www.instagram.com/rminbkh/", icon: <FaInstagram />, color: "#ee4477" },
+  {
+    href: "https://www.github.com/armin-bkh",
+    icon: <FaGithub />,
+    color: "#181818",
+  },
+  {
+    href: "https://www.linkedin.com/in/arminbkh",
+    icon: <FaLinkedinIn />,
+    color: "#3979f0",
+  },
+  {
+    href: "https://www.instagram.com/rminbkh/",
+    icon: <FaInstagram />,
+    color: "#ee4477",
+  },
 ];
 
 const SideBar = () => {
@@ -29,7 +41,12 @@ const SideBar = () => {
                   {link.icon}
                 </NavLink>
               ) : (
-                <a href={link.href} target="_blank" className="link notActive">
+                <a
+                  href={link.href}
+                  rel="noreferrer"
+                  target="_blank"
+                  className="link notActive"
+                >
                   {link.icon}
                 </a>
               )}

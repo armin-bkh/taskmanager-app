@@ -15,7 +15,7 @@ export const InputContainer = styled.fieldset<inputContainerProps>`
     display: flex;
     align-items: center;
 
-    .notRequired{
+    .notRequired {
       font-size: 9px;
       margin-left: 5px;
     }
@@ -28,12 +28,12 @@ export const InputContainer = styled.fieldset<inputContainerProps>`
     border: none;
     outline: none;
     border-radius: 5px;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     height: ${(props) => (props.type === "textarea" ? "150px" : "auto")};
     resize: none;
 
-    &:focus{
-        /* box-shadow: 0 0 5px #0891b2;  */
+    &:focus {
+      /* box-shadow: 0 0 5px #0891b2;  */
     }
   }
   & .error {

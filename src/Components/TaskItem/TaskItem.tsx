@@ -15,7 +15,8 @@ interface taskItemProps {
 }
 
 const TaskItem = ({ task }: taskItemProps) => {
-  const { removeTaskHandler, completeTaskHandler, progressTaskHandler } = useTasksActions();
+  const { removeTaskHandler, completeTaskHandler, progressTaskHandler } =
+    useTasksActions();
   const setEdit = useEdit();
   const navigate = useNavigate();
 
@@ -47,12 +48,17 @@ const TaskItem = ({ task }: taskItemProps) => {
             >
               {task.status === "completed" ? <FaListAlt /> : <AiOutlineCheck />}
             </button>
-            <button onClick={() => progressTaskHandler(task)} className={styles.completeBtn}>
+            <button
+              onClick={() => progressTaskHandler(task)}
+              className={styles.completeBtn}
+            >
               {task.status === "to do" ? (
                 <Loading className={styles.progressBtn} />
               ) : task.status === "in progress" ? (
                 <FaListAlt />
-              ) : <Loading className={styles.progressBtn} />}
+              ) : (
+                <Loading className={styles.progressBtn} />
+              )}
             </button>
           </div>
         </div>

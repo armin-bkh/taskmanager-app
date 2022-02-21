@@ -1,6 +1,7 @@
 import { useContext, useEffect, useReducer } from "react";
 import toast from "react-hot-toast";
 import { TaskActionsContext, TaskContext } from "../../Context/TaskContext";
+import { sortByDate } from "../Utils/sortByDate";
 import {
   actionCases,
   actionType,
@@ -26,10 +27,8 @@ const reducer = (state: TasksType, action: actionType) => {
     }
     case "ADDTASK": {
       const updatedTasks = [...state.tasks, { ...action.payload }];
-      const sortedTasks = updatedTasks.sort(
-        (a: taskItemType, b: taskItemType) =>
-          +new Date(b.created) - +new Date(a.created)
-      );
+      const sortedTasks = sortByDate(updatedTasks, "created");
+
       return { tasks: sortedTasks };
     }
     case "REMOVETASK": {
@@ -48,10 +47,7 @@ const reducer = (state: TasksType, action: actionType) => {
       selectedTask.description = action.payload.description;
       selectedTask.updated = new Date().toLocaleString();
       cloneTasks[index] = selectedTask;
-      const sortedTasks = cloneTasks.sort(
-        (a: taskItemType, b: taskItemType) =>
-          +new Date(b.updated) - +new Date(a.updated)
-      );
+      const sortedTasks = sortByDate(cloneTasks, "updated");
 
       return { tasks: sortedTasks };
     }
@@ -61,6 +57,7 @@ const reducer = (state: TasksType, action: actionType) => {
         (task) => task.id === action.payload.id
       );
       const selectedTask = { ...cloneTasks[index] };
+      selectedTask.updated = new Date().toLocaleString();
       if (selectedTask.status === "completed") {
         selectedTask.status = "to do";
         cloneTasks[index] = selectedTask;
@@ -68,10 +65,8 @@ const reducer = (state: TasksType, action: actionType) => {
         selectedTask.status = "completed";
         cloneTasks[index] = selectedTask;
       }
-      const sortedTasks = cloneTasks.sort(
-        (a: taskItemType, b: taskItemType) =>
-          +new Date(b.updated) - +new Date(a.updated)
-      );
+      const sortedTasks = sortByDate(cloneTasks, "updated");
+
       return { tasks: sortedTasks };
     }
     case "PROGRESSTASK": {
@@ -80,6 +75,7 @@ const reducer = (state: TasksType, action: actionType) => {
         (task) => task.id === action.payload.id
       );
       const selectedTask = { ...cloneTasks[index] };
+      selectedTask.updated = new Date().toLocaleString();
       if (selectedTask.status === "in progress") {
         selectedTask.status = "to do";
         cloneTasks[index] = selectedTask;
@@ -87,10 +83,7 @@ const reducer = (state: TasksType, action: actionType) => {
         selectedTask.status = "in progress";
         cloneTasks[index] = selectedTask;
       }
-      const sortedTasks = cloneTasks.sort(
-        (a: taskItemType, b: taskItemType) =>
-          +new Date(b.updated) - +new Date(a.updated)
-      );
+      const sortedTasks = sortByDate(cloneTasks, "updated");
       return { tasks: sortedTasks };
     }
     default:
@@ -156,7 +149,7 @@ export const useTasksActions = () => {
       duration: 4000,
     });
     dispatch({ type: actionCases.PROGRESSTASK, payload: task });
-  }
+  };
 
   return {
     addTaskHandler,

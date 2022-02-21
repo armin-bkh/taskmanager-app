@@ -85,9 +85,9 @@ const AddTaskForm = () => {
     }
   }, [search]);
 
-  useEffect(()=> {
-    if(formik.values.status) formik.setFieldTouched("status", true)
-  }, [formik.values.status])
+  useEffect(() => {
+    if (formik.values.status) formik.setFieldTouched("status", true);
+  }, [formik.values.status]);
 
   return (
     <form className={styles.formContainer} onSubmit={formik.handleSubmit}>

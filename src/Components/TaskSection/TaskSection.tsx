@@ -26,9 +26,7 @@ const TaskSection = ({ title, tasks }: taskSectionProps) => {
       </header>
       <div className={styles.list}>
         {tasks.length > 0 &&
-          tasks.map((task) => (
-            <TaskItem key={task.id} task={task} />
-          ))}
+          tasks.map((task) => <TaskItem key={task.id} task={task} />)}
       </div>
     </div>
   );

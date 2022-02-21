@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Section = styled.section`
-    padding: 1rem;
-    overflow-y: auto;
+  padding: 1rem;
+  overflow-y: auto;
 `;
