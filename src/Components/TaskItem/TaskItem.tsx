@@ -14,7 +14,7 @@ const TaskItem = ({ task }: taskItemProps) => {
 
   return (
     <div
-      onClick={() => navigate(`task-${task.id}`, { state: task })}
+      onClick={() => navigate(`task-${task.id}`, { state: { task } })}
       className={styles.taskItem}
     >
       <header className={styles.header}>

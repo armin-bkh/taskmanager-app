@@ -1,0 +1,73 @@
+.taskDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  .title {
+    display: flex;
+    align-items: center;
+  }
+  .status {
+    color: #818cf8;
+    font-weight: 700;
+  }
+}
+
+.taskDetailDescription {
+  background: #f3f4f6;
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 300px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  box-shadow: 0 0 10px #fff;
+}
+
+.taskDetailFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: #7c7c7c;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+
+  .btn {
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease;
+  }
+  .edit {
+    border: 1px #14b8a6 solid;
+    background: #ccfbf1;
+    color: #0d9488;
+
+    &:hover {
+      background: #0d9488;
+      color: #ccfbf1;
+    }
+  }
+  .trash {
+    border: 1px #ef4444 solid;
+    background: #fca5a5;
+    color: #dc2626;
+
+    &:hover {
+      background: #dc2626;
+      color: #fca5a5;
+    }
+  }
+}

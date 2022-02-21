@@ -1,12 +1,12 @@
-import { useLocation, useParams } from "react-router-dom";
 import { Section } from "../Components/styled-components/Section.style";
+import TaskDetail from "../Components/TaskDetail/TaskDetail";
 import Layout from "../Layout/Layout";
 
 const TaskDetailPage = () => {
     return (
         <Layout>
             <Section>
-                <h1>Task Detail Page</h1>
+                <TaskDetail />
             </Section>
         </Layout>
     )
