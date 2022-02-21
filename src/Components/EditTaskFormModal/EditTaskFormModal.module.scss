@@ -1,0 +1,31 @@
+.editTaskFormContainer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(#fff, 0.9);
+  z-index: 999999;
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+
+  .editTaskForm {
+    margin: auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #9b9b9b8f;
+    display: flex;
+    flex-flow: column wrap;
+    width: 280px;
+
+    @media screen and (min-width: 767px) {
+      width: 500px;
+    }
+  }
+}

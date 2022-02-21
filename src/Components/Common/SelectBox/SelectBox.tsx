@@ -11,7 +11,7 @@ interface selectBoxProps {
   formik: any;
   name: string;
   placeholder: string;
-  styles: any;
+  styles?: any;
 }
 
 const SelectBox = ({

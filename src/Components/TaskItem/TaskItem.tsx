@@ -11,7 +11,7 @@ interface taskItemProps {
 
 const TaskItem = ({ task }: taskItemProps) => {
   const { removeTaskHandler } = useTasksActions();
-  const setEditId = useEdit();
+  const setEdit = useEdit();
   const navigate = useNavigate();
 
   return (
@@ -33,7 +33,7 @@ const TaskItem = ({ task }: taskItemProps) => {
         </footer>
       </div>
       <div className={styles.buttons}>
-        <button onClick={()=> setEditId(task.id)} type="button" className={styles.edit}>
+        <button onClick={()=> setEdit(task)} type="button" className={styles.edit}>
           <FaEdit />
         </button>
         <button

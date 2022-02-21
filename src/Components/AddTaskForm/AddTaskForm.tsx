@@ -10,7 +10,7 @@ import { Button } from "../styled-components/Button.style";
 import queryString from "query-string";
 import styles from "./AddTaskForm.module.scss";
 
-const options = [
+export const options = [
   { value: "todo", label: "todo" },
   { value: "in progress", label: "in progress" },
   { value: "completed", label: "completed" },
@@ -33,7 +33,7 @@ const validationSchema = Yup.object({
   description: Yup.string().notRequired(),
 });
 
-const customStyles = {
+export const customStyles = {
   control: (styles: any, { isFocused }: any) => ({
     transition: "all .3s ease",
     display: "flex",
