@@ -38,15 +38,15 @@ const customStyles = {
     transition: "all .3s ease",
     display: "flex",
     borderRadius: "5px",
-    backgroundColor: "white",
+    backgroundColor: "#f1f5f9",
     outline: isFocused ? "none" : "none",
-    boxShadow: isFocused ? "0 0 5px #0891b2" : "none",
-    border: "1.5px solid #0891b2",
+    boxShadow: "0 0 7px #e7e5e4",
+    border: "none",
   }),
   option: (styles: any, { data, isDisabled, isFocused, isSelected }: any) => {
     return {
       ...styles,
-      backgroundColor: isSelected ? "#ccc" : "#fff",
+      backgroundColor: isSelected ? "#d6d3d1" : "#fff",
       color: "#000",
       cursor: isDisabled ? "not-allowed" : "default",
     };

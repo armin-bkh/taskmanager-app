@@ -22,17 +22,18 @@ export const InputContainer = styled.fieldset<inputContainerProps>`
   }
 
   & .input {
+    background: #f1f5f9;
+    box-shadow: 0 0 7px #e7e5e4;
     padding: 10px 15px;
-    border: 1.5px solid #0891b2;
+    border: none;
     outline: none;
-    background: #fafafa;
     border-radius: 5px;
     transition: all .3s ease;
     height: ${(props) => (props.type === "textarea" ? "150px" : "auto")};
     resize: none;
 
     &:focus{
-        box-shadow: 0 0 5px #0891b2;
+        /* box-shadow: 0 0 5px #0891b2;  */
     }
   }
   & .error {
