@@ -151,10 +151,18 @@ export const useTasksActions = () => {
     dispatch({ type: actionCases.COMPLETETASK, payload: task });
   };
 
+  const progressTaskHandler = (task: taskItemType) => {
+    toast.success(`${task.title} added to in progess!`, {
+      duration: 4000,
+    });
+    dispatch({ type: actionCases.PROGRESSTASK, payload: task });
+  }
+
   return {
     addTaskHandler,
     removeTaskHandler,
     editTaskHandler,
     completeTaskHandler,
+    progressTaskHandler,
   };
 };
