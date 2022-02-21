@@ -11,6 +11,7 @@ interface inputProps {
 
 
 const Input = ({ formik, type, lbl, id, name, placeholder }: inputProps) => {
+    
     return (
         <InputContainer type={type}>
             <label htmlFor={id}>{lbl}: {type === "textarea" && <span className="notRequired">(not required)</span>}</label>

@@ -48,12 +48,12 @@ const reducer = (state: TasksType, action: actionType) => {
       selectedTask.description = action.payload.description;
       selectedTask.updated = new Date().toLocaleString();
       cloneTasks[index] = selectedTask;
-      cloneTasks.sort(
+      const sortedTasks = cloneTasks.sort(
         (a: taskItemType, b: taskItemType) =>
-          +new Date(b.created) - +new Date(a.created)
+          +new Date(b.updated) - +new Date(a.updated)
       );
 
-      return { tasks: cloneTasks };
+      return { tasks: sortedTasks };
     }
     default:
       return state;
@@ -98,5 +98,13 @@ export const useTasksActions = () => {
     });
     dispatch({ type: actionCases.REMOVETASK, payload: task });
   };
-  return { addTaskHandler, removeTaskHandler };
+
+  const editTaskHandler = (task: taskItemType) => {
+    toast.success(`${task.title} edited`, {
+      duration: 4000,
+    });
+    dispatch({ type: actionCases.EDITTASK, payload: task });
+  };
+
+  return { addTaskHandler, removeTaskHandler, editTaskHandler };
 };
