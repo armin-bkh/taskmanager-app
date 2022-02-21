@@ -1,5 +1,6 @@
 import { useFormik, FormikProps } from "formik";
 import { useEffect, useState } from "react";
+import { FaTimes } from "react-icons/fa";
 import { customStyles, options } from "../AddTaskForm/AddTaskForm";
 import Input from "../Common/Input/Input";
 import SelectBox from "../Common/SelectBox/SelectBox";
@@ -49,7 +50,12 @@ const EditTaskFormModal = ({ task, setEdit }: editTaskFormModalProps) => {
   return (
     <section className={styles.editTaskFormContainer}>
       <form className={styles.editTaskForm} onSubmit={formik.handleSubmit}>
-        <h1 className={styles.title}>Edit Task</h1>
+        <header className={styles.header}>
+          <h1 className={styles.title}>Edit Task</h1>
+          <button onClick={() => setEdit(null)} type="button" className={styles.closeBtn}>
+              <FaTimes />
+          </button>
+        </header>
         <Input
           type="text"
           formik={formik}

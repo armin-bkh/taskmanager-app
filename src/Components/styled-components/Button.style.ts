@@ -8,14 +8,14 @@ export const Button = styled.button<buttonProps>`
   position: relative;
   padding: 10px 15px;
   border-radius: 4px;
-  background: #06b6d4;
+  background: #818cf8;
   color: #fff;
   outline: none;
   border: none;
   overflow: hidden;
   z-index: 2;
   font-weight: 700;
-  outline: #06b6d4 solid 1px;
+  outline: #818cf8 solid 1px;
   outline-offset: 2px;
   transition: all 0.3s ease;
 
@@ -28,7 +28,7 @@ export const Button = styled.button<buttonProps>`
         if (!disabled)
           return {
             height: "100%",
-            boxShadow: "0 0 10px #06b6d4",
+            boxShadow: "0 0 10px #6366f1",
           };
       }}
     }
@@ -38,7 +38,7 @@ export const Button = styled.button<buttonProps>`
   &::after {
     content: "";
     position: absolute;
-    background: #0891b2;
+    background: #6366f1;
     left: 0;
     top: 0;
     height: 0;
