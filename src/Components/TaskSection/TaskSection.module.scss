@@ -1,50 +1,72 @@
-.taskSection{
-    border-radius: 10px;
-    background-color: #f1f5f9;
-    padding: 1rem;
-    box-shadow: 0 0 7px rgba(#6366f1, .1);
-    overflow-y: auto;
+.taskSection {
+  border-radius: 10px;
+  background-color: #f1f5f9;
+  padding: 1rem;
+  box-shadow: 0 0 7px rgba(#6366f1, 0.1);
+  overflow-y: auto;
+  min-height: 400px;
+  scrollbar-color: rgba(#6366f1, 0.2) transparent;
+  scrollbar-width: auto;
 
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
 
-    .header{
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgba(#6366f1, 0.2);
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(#6366f1, 0.5);
+  }
+
+  .header {
+    display: flex;
+    flex-flow: column wrap;
+
+    .titleContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .title {
+        font-size: 25px;
+        text-transform: capitalize;
+      }
+
+      .badge {
         display: flex;
-        flex-flow: column wrap;
-
-        .titleContainer{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-
-            .title{
-                font-size: 25px;
-                text-transform: capitalize;
-            }
-
-            .badge{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: #6366f1;
-                background: #d1d5db;
-                border-radius: 50%;
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        .addBtn{
-            text-align: center;
-            width: 100%;
-            background-color: #d1d5db;
-            border-radius: 5px;
-            padding: 5px 0;
-            color: #6366f1;
-            margin-bottom: 20px;
-        }
+        justify-content: center;
+        align-items: center;
+        color: #6366f1;
+        background: #d1d5db;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+      }
     }
 
-    .list{
-        flex: 1; 
+    .addBtn {
+      text-align: center;
+      width: 100%;
+      background-color: #d1d5db;
+      border-radius: 5px;
+      padding: 5px 0;
+      color: #6366f1;
+      margin-bottom: 20px;
     }
+  }
+
+  .list {
+    flex: 1;
+  }
 }
