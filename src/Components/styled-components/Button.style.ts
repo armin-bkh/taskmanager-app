@@ -32,7 +32,6 @@ export const Button = styled.button<buttonProps>`
           };
       }}
     }
-
   }
 
   &::after {

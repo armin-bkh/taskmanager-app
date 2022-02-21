@@ -24,7 +24,7 @@ const TaskItem = ({ task }: taskItemProps) => {
     <div className={styles.taskItemContainer}>
       <div className={styles.taskItem}>
         <header
-          onClick={() => navigate(`/add-task`, { state: { task } })}
+          onClick={() => navigate(`/task-${task.id}`, { state: { task } })}
           className={`${styles.header} ${
             task.status === "completed" && styles.completed
           }`}
@@ -37,7 +37,7 @@ const TaskItem = ({ task }: taskItemProps) => {
             className={`${styles.description}  ${
               task.status === "completed" && styles.completed
             }`}
-            onClick={() => navigate(`/add-task`, { state: { task } })}
+            onClick={() => navigate(`/task-${task.id}`, { state: { task } })}
           >
             {task.description}
           </p>
@@ -64,7 +64,7 @@ const TaskItem = ({ task }: taskItemProps) => {
         </div>
         <footer
           className={styles.footer}
-          onClick={() => navigate(`/add-task`, { state: { task } })}
+          onClick={() => navigate(`/task-${task.id}`, { state: { task } })}
         >
           <span>
             created: <br />
