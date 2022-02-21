@@ -5,7 +5,7 @@ import styles from "./TaskList.module.scss";
 const taskStatus = [
   {
     id: 1,
-    value: "todo",
+    value: "to do",
   },
   {
     id: 2,

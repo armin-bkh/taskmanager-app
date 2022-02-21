@@ -55,6 +55,20 @@ const reducer = (state: TasksType, action: actionType) => {
 
       return { tasks: sortedTasks };
     }
+    case "COMPLETETASK": {
+      const cloneTasks = [...state.tasks];
+      const index = cloneTasks.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      const selectedTask = { ...cloneTasks[index] };
+      selectedTask.status = "completed";
+      cloneTasks[index] = selectedTask;
+      const sortedTasks = cloneTasks.sort(
+        (a: taskItemType, b: taskItemType) =>
+          +new Date(b.updated) - +new Date(a.updated)
+      );
+      return { tasks: sortedTasks };
+    }
     default:
       return state;
   }

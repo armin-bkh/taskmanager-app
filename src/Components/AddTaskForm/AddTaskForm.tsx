@@ -11,7 +11,7 @@ import queryString from "query-string";
 import styles from "./AddTaskForm.module.scss";
 
 export const options = [
-  { value: "todo", label: "todo" },
+  { value: "to do", label: "to do" },
   { value: "in progress", label: "in progress" },
   { value: "completed", label: "completed" },
 ];
