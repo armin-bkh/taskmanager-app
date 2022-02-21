@@ -61,8 +61,12 @@ const TaskDetail = () => {
         <p className={styles.message}>--- has no discription</p>
       )}
       <footer className={styles.taskDetailFooter}>
-        <span>created: <br /> {taskData?.created}</span>
-        <span>updated: <br /> {taskData?.updated}</span>
+        <span>
+          created: <br /> {taskData?.created}
+        </span>
+        <span>
+          updated: <br /> {taskData?.updated}
+        </span>
       </footer>
 
       <div className={styles.buttons}>
