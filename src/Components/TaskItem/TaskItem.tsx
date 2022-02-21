@@ -5,7 +5,10 @@ import { FaEdit, FaTimes, FaListAlt } from "react-icons/fa";
 import { useTasksActions } from "../Provider/TaskProvider";
 import { useNavigate } from "react-router-dom";
 import { useEdit } from "../Provider/EditTaskProvider";
-import { AiOutlineCheck } from "react-icons/ai";
+import {
+  AiOutlineCheck,
+  AiOutlineLoading3Quarters as Loading,
+} from "react-icons/ai";
 
 interface taskItemProps {
   task: taskItemType;
@@ -18,11 +21,9 @@ const TaskItem = ({ task }: taskItemProps) => {
 
   return (
     <div className={styles.taskItemContainer}>
-      <div
-        className={styles.taskItem}
-        onClick={() => navigate(`/add-task`, { state: { task } })}
-      >
+      <div className={styles.taskItem}>
         <header
+          onClick={() => navigate(`/add-task`, { state: { task } })}
           className={`${styles.header} ${
             task.status === "completed" && styles.completed
           }`}
@@ -30,26 +31,35 @@ const TaskItem = ({ task }: taskItemProps) => {
           <BsDot />
           {task.title}
         </header>
-          <div className={styles.descriptionContainer}>
-            {
-              task.description && (
-            <p
-              className={`${styles.description}  ${
-                task.status === "completed" && styles.completed
-              }`}
-            >
-              {task.description}
-            </p>
-              )
-            }
+        <div className={styles.descriptionContainer}>
+          <p
+            className={`${styles.description}  ${
+              task.status === "completed" && styles.completed
+            }`}
+            onClick={() => navigate(`/add-task`, { state: { task } })}
+          >
+            {task.description}
+          </p>
+          <div>
             <button
               className={styles.completeBtn}
               onClick={() => completeTaskHandler(task)}
             >
               {task.status === "completed" ? <FaListAlt /> : <AiOutlineCheck />}
             </button>
+            <button className={styles.completeBtn}>
+              {task.status === "to do" ? (
+                <Loading className={styles.progressBtn} />
+              ) : (
+                <FaListAlt />
+              )}
+            </button>
           </div>
-        <footer className={styles.footer}>
+        </div>
+        <footer
+          className={styles.footer}
+          onClick={() => navigate(`/add-task`, { state: { task } })}
+        >
           <span>
             created: <br />
             {task.created}

@@ -38,23 +38,45 @@
         font-size: 13px;
       }
 
-      .completeBtn{
-        font-size: 15px;
-        border: 1px solid #6366f1;
-        color: #6366f1;
-        background-color: transparent;
-        border-radius: 5px;
-        padding: 3px;
-        transition: all .3s ease;
+      div{
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        margin-left: auto;
 
-        &:hover{
-          background: #6366f1;
-          color: #fff;
+        .completeBtn{
+          font-size: 15px;
+          border: 1px solid #6366f1;
+          color: #6366f1;
+          background-color: transparent;
+          border-radius: 5px;
+          padding: 3px;
+          transition: all .3s ease;
+          display: flex;
+          align-items: center;
+          margin-left: auto;
+
+          &:last-child{
+            margin-left: 4px;
+          }
+  
+          &:hover{
+            background: #6366f1;
+            color: #fff;
+          }
+        }
+        .progressBtn{
+          @keyframes loading {
+            0%{
+              transform: rotate(0deg);
+            }
+            100%{
+              transform: rotate(360deg);
+            }
+          }
+          animation: loading .9s ease-in infinite;
         }
       }
+
     }
 
     .footer {

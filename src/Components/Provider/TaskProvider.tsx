@@ -61,11 +61,30 @@ const reducer = (state: TasksType, action: actionType) => {
         (task) => task.id === action.payload.id
       );
       const selectedTask = { ...cloneTasks[index] };
-      if ((selectedTask.status === "completed")) {
+      if (selectedTask.status === "completed") {
         selectedTask.status = "to do";
         cloneTasks[index] = selectedTask;
       } else {
         selectedTask.status = "completed";
+        cloneTasks[index] = selectedTask;
+      }
+      const sortedTasks = cloneTasks.sort(
+        (a: taskItemType, b: taskItemType) =>
+          +new Date(b.updated) - +new Date(a.updated)
+      );
+      return { tasks: sortedTasks };
+    }
+    case "PROGRESSTASK": {
+      const cloneTasks = [...state.tasks];
+      const index = cloneTasks.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      const selectedTask = { ...cloneTasks[index] };
+      if (selectedTask.status === "in progress") {
+        selectedTask.status = "to do";
+        cloneTasks[index] = selectedTask;
+      } else {
+        selectedTask.status = "in progress";
         cloneTasks[index] = selectedTask;
       }
       const sortedTasks = cloneTasks.sort(
