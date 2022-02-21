@@ -6,11 +6,13 @@ import styles from "./TaskDetail.module.scss";
 import { BsDot } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import { useEdit } from "../Provider/EditTaskProvider";
 
 const TaskDetail = () => {
   const [taskData, setTaskData] = useState<taskItemType>(null!);
   const { tasks } = useTasks();
   const { removeTaskHandler } = useTasksActions();
+  const setEdit = useEdit();
   const { id } = useParams();
   const { state }: any = useLocation();
   const navigate = useNavigate();
@@ -27,10 +29,21 @@ const TaskDetail = () => {
     }
   }, [tasks]);
 
+  useEffect(()=> {
+      if(taskData){
+          const data = tasks.find((task) => task.id === Number(id));
+          if (data) setTaskData(data);
+      }
+  }, [tasks])
+
   const removeHandler = () => {
     removeTaskHandler(taskData);
     navigate("/");
   };
+
+  const editHandler = () => {
+      setEdit(taskData);
+  }
 
   return taskData ? (
     <div className={styles.taskDetailContainer}>
@@ -41,17 +54,23 @@ const TaskDetail = () => {
         <p className={styles.status}>{taskData?.status}</p>
       </header>
       {taskData.description ? (
-      <div className={styles.taskDetailDescription}>
-        <p>{taskData?.description}</p>
-      </div>
-      ) : <p className={styles.message}>--- has no discription</p>}
+        <div className={styles.taskDetailDescription}>
+          <p>{taskData?.description}</p>
+        </div>
+      ) : (
+        <p className={styles.message}>--- has no discription</p>
+      )}
       <footer className={styles.taskDetailFooter}>
         <span>created: {taskData?.created}</span>
         <span>updated: {taskData?.updated}</span>
       </footer>
 
       <div className={styles.buttons}>
-        <button type="button" className={`${styles.btn} ${styles.edit}`}>
+        <button
+          onClick={editHandler}
+          type="button"
+          className={`${styles.btn} ${styles.edit}`}
+        >
           <FaEdit />
         </button>
         <button
