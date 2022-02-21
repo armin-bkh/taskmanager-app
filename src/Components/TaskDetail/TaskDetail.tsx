@@ -33,16 +33,18 @@ const TaskDetail = () => {
   };
 
   return taskData ? (
-    <>
+    <div className={styles.taskDetailContainer}>
       <header className={styles.taskDetailHeader}>
         <h1 className={styles.title}>
           <BsDot /> {taskData?.title}
         </h1>
         <p className={styles.status}>{taskData?.status}</p>
       </header>
+      {taskData.description ? (
       <div className={styles.taskDetailDescription}>
         <p>{taskData?.description}</p>
       </div>
+      ) : <p className={styles.message}>--- has no discription</p>}
       <footer className={styles.taskDetailFooter}>
         <span>created: {taskData?.created}</span>
         <span>updated: {taskData?.updated}</span>
@@ -60,7 +62,7 @@ const TaskDetail = () => {
           <FaTimes />
         </button>
       </div>
-    </>
+    </div>
   ) : null;
 };
 

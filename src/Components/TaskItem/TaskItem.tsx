@@ -13,21 +13,23 @@ const TaskItem = ({ task }: taskItemProps) => {
   const navigate = useNavigate();
 
   return (
-    <div
-      onClick={() => navigate(`task-${task.id}`, { state: { task } })}
-      className={styles.taskItem}
-    >
-      <header className={styles.header}>
-        <BsDot />
-        {task.title}
-      </header>
-      {task.description && (
-        <p className={styles.description}>{task.description}</p>
-      )}
-      <footer className={styles.footer}>
-        <span>created: {task.created}</span>
-        <span>updated: {task.updated}</span>
-      </footer>
+    <div className={styles.taskItemContainer}>
+      <div
+        className={styles.taskItem}
+        onClick={() => navigate(`task-${task.id}`, { state: { task } })}
+      >
+        <header className={styles.header}>
+          <BsDot />
+          {task.title}
+        </header>
+        {task.description && (
+          <p className={styles.description}>{task.description}</p>
+        )}
+        <footer className={styles.footer}>
+          <span>created: {task.created}</span>
+          <span>updated: {task.updated}</span>
+        </footer>
+      </div>
       <div className={styles.buttons}>
         <button type="button" className={styles.edit}>
           <FaEdit />

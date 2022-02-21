@@ -1,73 +1,90 @@
-.taskDetailHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-
-  .title {
-    display: flex;
-    align-items: center;
-  }
-  .status {
-    color: #818cf8;
-    font-weight: 700;
-  }
-}
-
-.taskDetailDescription {
-  background: #f3f4f6;
+.taskDetailContainer {
+  background-color: #fff;
   border-radius: 5px;
-  padding: 10px;
-  min-height: 300px;
-  margin-bottom: 10px;
-  font-size: 12px;
-  box-shadow: 0 0 10px #fff;
-}
+  padding: 15px;
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+  height: 100%;
 
-.taskDetailFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 10px;
-  color: #7c7c7c;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100px;
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-
-  .btn {
-    font-size: 20px;
-    padding: 8px;
-    border-radius: 50%;
+  .taskDetailHeader {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    transition: all .3s ease;
-  }
-  .edit {
-    border: 1px #14b8a6 solid;
-    background: #ccfbf1;
-    color: #0d9488;
+    margin-bottom: 30px;
 
-    &:hover {
-      background: #0d9488;
-      color: #ccfbf1;
+    .title {
+      display: flex;
+      align-items: center;
+    }
+    .status {
+      color: #818cf8;
+      font-weight: 700;
     }
   }
-  .trash {
-    border: 1px #ef4444 solid;
-    background: #fca5a5;
-    color: #dc2626;
 
-    &:hover {
-      background: #dc2626;
-      color: #fca5a5;
+  .taskDetailDescription {
+    background: #f3f4f6;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 300px;
+    font-size: 12px;
+    box-shadow: 0 0 10px #fff;
+  }
+
+  .message {
+    color: rgba(#ccc, 0.8);
+    font: 11px;
+  }
+
+  .taskDetailFooter {
+    border-top: 1px #ccc solid;
+    padding-top: 5px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: #7c7c7c;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    .btn {
+      font-size: 20px;
+      padding: 8px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .edit {
+      border: 1px #14b8a6 solid;
+      background: #ccfbf1;
+      color: #0d9488;
+
+      &:hover {
+        background: #0d9488;
+        color: #ccfbf1;
+      }
+    }
+    .trash {
+      border: 1px #ef4444 solid;
+      background: #fca5a5;
+      color: #dc2626;
+
+      &:hover {
+        background: #dc2626;
+        color: #fca5a5;
+      }
     }
   }
 }

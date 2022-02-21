@@ -1,36 +1,48 @@
-.taskItem {
-  display: flex;
-  flex-flow: column wrap;
-  background: #fff;
-  padding: 10px;
-  border-radius: 5px;
+.taskItemContainer {
   position: relative;
+  z-index: 1;
 
-  &:not(:last-child) {
-    margin-bottom: 15px;
-  }
-  .header {
-    margin-bottom: 15px;
+  .taskItem {
     display: flex;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 700;
-  }
+    flex-flow: column wrap;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #aaaaaa6b;
+    transition: all .2s ease;
+    cursor: pointer;
+    
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
 
-  .description {
-    margin-bottom: 10px;
-    font-size: 13px;
-  }
+    &:hover{
+      box-shadow: 0 0 13px #9b9b9b7a;
+    }
+    .header {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 700;
+    }
 
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 10px;
-    color: #7c7c7c;
+    .description {
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: #7c7c7c;
+    }
   }
 
   .buttons {
+    z-index: 9999;
     width: 70px;
     display: flex;
     justify-content: space-evenly;
@@ -41,7 +53,6 @@
     right: -7px;
     background: #818cf8;
     border-radius: 5px;
-    z-index: 2;
 
     button {
       padding: 2px;
