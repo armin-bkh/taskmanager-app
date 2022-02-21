@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useTasks } from "../Provider/TaskProvider";
+import { useTasks, useTasksActions } from "../Provider/TaskProvider";
 import { taskItemType } from "../Provider/taskProviderTypes.type";
 import styles from "./TaskDetail.module.scss";
 import { BsDot } from "react-icons/bs";
@@ -8,8 +8,9 @@ import { FaTimes } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 
 const TaskDetail = () => {
-  const [taskData, setTaskData] = useState<taskItemType | null>(null);
+  const [taskData, setTaskData] = useState<taskItemType>(null!);
   const { tasks } = useTasks();
+  const { removeTaskHandler } = useTasksActions();
   const { id } = useParams();
   const { state }: any = useLocation();
   const navigate = useNavigate();
@@ -26,7 +27,12 @@ const TaskDetail = () => {
     }
   }, [tasks]);
 
-  return (
+  const removeHandler = () => {
+    removeTaskHandler(taskData);
+    navigate("/");
+  };
+
+  return taskData ? (
     <>
       <header className={styles.taskDetailHeader}>
         <h1 className={styles.title}>
@@ -43,15 +49,19 @@ const TaskDetail = () => {
       </footer>
 
       <div className={styles.buttons}>
-        <button className={`${styles.btn} ${styles.edit}`}>
+        <button type="button" className={`${styles.btn} ${styles.edit}`}>
           <FaEdit />
         </button>
-        <button className={`${styles.btn} ${styles.trash}`}>
+        <button
+          type="button"
+          onClick={removeHandler}
+          className={`${styles.btn} ${styles.trash}`}
+        >
           <FaTimes />
         </button>
       </div>
     </>
-  );
+  ) : null;
 };
 
 export default TaskDetail;
