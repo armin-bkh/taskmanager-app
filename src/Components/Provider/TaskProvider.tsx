@@ -87,20 +87,20 @@ export const useTasks = () => useContext(TaskContext);
 export const useTasksActions = () => {
   const dispatch = useContext(TaskActionsContext);
   const addTaskHandler = (task: taskItemType) => {
-    toast.success(`${task.title} added`, {
+    toast.success(`${task.title} successfully added!`, {
       duration: 4000,
     });
     dispatch({ type: actionCases.ADDTASK, payload: task });
   };
   const removeTaskHandler = (task: taskItemType) => {
-    toast.success(`${task.title} removed`, {
+    toast.success(`${task.title} successfully removed!`, {
       duration: 4000,
     });
     dispatch({ type: actionCases.REMOVETASK, payload: task });
   };
 
   const editTaskHandler = (task: taskItemType) => {
-    toast.success(`${task.title} edited`, {
+    toast.success(`successully done!`, {
       duration: 4000,
     });
     dispatch({ type: actionCases.EDITTASK, payload: task });

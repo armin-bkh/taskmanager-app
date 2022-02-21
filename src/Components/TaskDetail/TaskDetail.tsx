@@ -29,12 +29,12 @@ const TaskDetail = () => {
     }
   }, [tasks]);
 
-  useEffect(()=> {
-      if(taskData){
-          const data = tasks.find((task) => task.id === Number(id));
-          if (data) setTaskData(data);
-      }
-  }, [tasks])
+  useEffect(() => {
+    if (taskData) {
+      const data = tasks.find((task) => task.id === Number(id));
+      if (data) setTaskData(data);
+    }
+  }, [tasks]);
 
   const removeHandler = () => {
     removeTaskHandler(taskData);
@@ -42,8 +42,8 @@ const TaskDetail = () => {
   };
 
   const editHandler = () => {
-      setEdit(taskData);
-  }
+    setEdit(taskData);
+  };
 
   return taskData ? (
     <div className={styles.taskDetailContainer}>
