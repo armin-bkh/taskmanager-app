@@ -47,13 +47,18 @@ const EditTaskFormModal = ({ task, setEdit }: editTaskFormModalProps) => {
       onSubmit,
       enableReinitialize: true,
     });
+
   return (
     <section className={styles.editTaskFormContainer}>
       <form className={styles.editTaskForm} onSubmit={formik.handleSubmit}>
         <header className={styles.header}>
           <h1 className={styles.title}>Edit Task</h1>
-          <button onClick={() => setEdit(null)} type="button" className={styles.closeBtn}>
-              <FaTimes />
+          <button
+            onClick={() => setEdit(null)}
+            type="button"
+            className={styles.closeBtn}
+          >
+            <FaTimes />
           </button>
         </header>
         <Input

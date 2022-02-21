@@ -12,7 +12,7 @@ export type TasksType = {
 }
 
 export type actionWithPayloadType = {
-    type: "ADDTASK" | "REMOVETASK",
+    type: "ADDTASK" | "REMOVETASK" | "EDITTASK",
     payload: taskItemType
 }
 
@@ -27,4 +27,5 @@ export enum actionCases {
     FETCH = "FETCH",
     ADDTASK = "ADDTASK",
     REMOVETASK = "REMOVETASK",
+    EDITTASK = "EDITTASK",
 }
