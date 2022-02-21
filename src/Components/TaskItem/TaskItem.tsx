@@ -1,7 +1,7 @@
 import { taskItemType } from "../Provider/taskProviderTypes.type";
 import styles from "./TaskItem.module.scss";
 import { BsDot } from "react-icons/bs";
-import { FaEdit, FaTimes } from "react-icons/fa";
+import { FaEdit, FaTimes, FaListAlt } from "react-icons/fa";
 import { useTasksActions } from "../Provider/TaskProvider";
 import { useNavigate } from "react-router-dom";
 import { useEdit } from "../Provider/EditTaskProvider";
@@ -22,21 +22,33 @@ const TaskItem = ({ task }: taskItemProps) => {
         className={styles.taskItem}
         onClick={() => navigate(`/add-task`, { state: { task } })}
       >
-        <header className={styles.header}>
+        <header
+          className={`${styles.header} ${
+            task.status === "completed" && styles.completed
+          }`}
+        >
           <BsDot />
           {task.title}
         </header>
-        {task.description && (
           <div className={styles.descriptionContainer}>
-            <p className={styles.description}>{task.description}</p>
+            {
+              task.description && (
+            <p
+              className={`${styles.description}  ${
+                task.status === "completed" && styles.completed
+              }`}
+            >
+              {task.description}
+            </p>
+              )
+            }
             <button
               className={styles.completeBtn}
               onClick={() => completeTaskHandler(task)}
             >
-              {task.description === "completed" ? "back" : <AiOutlineCheck />}
+              {task.status === "completed" ? <FaListAlt /> : <AiOutlineCheck />}
             </button>
           </div>
-        )}
         <footer className={styles.footer}>
           <span>
             created: <br />

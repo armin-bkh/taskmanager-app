@@ -61,8 +61,13 @@ const reducer = (state: TasksType, action: actionType) => {
         (task) => task.id === action.payload.id
       );
       const selectedTask = { ...cloneTasks[index] };
-      selectedTask.status = "completed";
-      cloneTasks[index] = selectedTask;
+      if ((selectedTask.status === "completed")) {
+        selectedTask.status = "to do";
+        cloneTasks[index] = selectedTask;
+      } else {
+        selectedTask.status = "completed";
+        cloneTasks[index] = selectedTask;
+      }
       const sortedTasks = cloneTasks.sort(
         (a: taskItemType, b: taskItemType) =>
           +new Date(b.updated) - +new Date(a.updated)
@@ -125,7 +130,12 @@ export const useTasksActions = () => {
       duration: 4000,
     });
     dispatch({ type: actionCases.COMPLETETASK, payload: task });
-  }
+  };
 
-  return { addTaskHandler, removeTaskHandler, editTaskHandler, completeTaskHandler };
+  return {
+    addTaskHandler,
+    removeTaskHandler,
+    editTaskHandler,
+    completeTaskHandler,
+  };
 };
