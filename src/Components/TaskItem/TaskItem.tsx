@@ -4,12 +4,14 @@ import { BsDot } from "react-icons/bs";
 import { FaEdit, FaTimes } from "react-icons/fa";
 import { useTasksActions } from "../Provider/TaskProvider";
 import { useNavigate } from "react-router-dom";
+import { useEdit } from "../Provider/EditTaskProvider";
 interface taskItemProps {
   task: taskItemType;
 }
 
 const TaskItem = ({ task }: taskItemProps) => {
   const { removeTaskHandler } = useTasksActions();
+  const setEditId = useEdit();
   const navigate = useNavigate();
 
   return (
@@ -31,7 +33,7 @@ const TaskItem = ({ task }: taskItemProps) => {
         </footer>
       </div>
       <div className={styles.buttons}>
-        <button type="button" className={styles.edit}>
+        <button onClick={()=> setEditId(task.id)} type="button" className={styles.edit}>
           <FaEdit />
         </button>
         <button
