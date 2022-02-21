@@ -9,14 +9,14 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px #aaaaaa6b;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
-    
+
     &:not(:last-child) {
       margin-bottom: 15px;
     }
 
-    &:hover{
+    &:hover {
       box-shadow: 0 0 13px #9b9b9b7a;
     }
     .header {
@@ -36,8 +36,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 10px;
+      font-size: 8px;
       color: #7c7c7c;
+
+      @media screen and (min-width: 767px) {
+        font-size: 10px;
+      }
     }
   }
 

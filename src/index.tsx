@@ -10,7 +10,19 @@ ReactDOM.render(
     <TaskProvider>
       <>
         <App />
-        <Toaster position="top-right" reverseOrder={false}  />
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+          toastOptions={{
+            success: {
+              style: {
+                minWidth: "290px",
+                boxShadow: "0 2px 5px #a2a3a355",
+                background: "#f0fdf4",
+              },
+            },
+          }}
+        />
       </>
     </TaskProvider>
   </BrowserRouter>,

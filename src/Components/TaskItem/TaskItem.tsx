@@ -26,8 +26,8 @@ const TaskItem = ({ task }: taskItemProps) => {
           <p className={styles.description}>{task.description}</p>
         )}
         <footer className={styles.footer}>
-          <span>created: {task.created}</span>
-          <span>updated: {task.updated}</span>
+          <span>created: <br />{task.created}</span>
+          <span>updated: <br />{task.updated}</span>
         </footer>
       </div>
       <div className={styles.buttons}>
