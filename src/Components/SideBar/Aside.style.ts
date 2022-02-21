@@ -15,16 +15,27 @@ export const Aside = styled.aside`
     height: calc(100vh - 65px);
   }
 
+  &::before {
+    content: "";
+    position: absolute;
+    width: calc(100% - 5px);
+    height: 5px;
+    top: 0;
+    left: 2px;
+    background: #fcfcfc;
+  }
+
   &::after {
     content: "";
     position: absolute;
     width: 20px;
     height: 20px;
-    border-left: 5px #fff solid;
+    border-left: 5px #fcfcfc solid;
     right: -20px;
-    top: -1px;
+    top: -3px;
     transform: rotate(45deg);
     border-radius: 50%;
+
   }
 
   & .navBar {

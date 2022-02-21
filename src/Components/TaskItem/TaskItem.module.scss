@@ -1,7 +1,7 @@
 .taskItemContainer {
   position: relative;
 
-  .completed{
+  .completed {
     text-decoration: #252525 line-through solid;
   }
 
@@ -32,54 +32,53 @@
     .descriptionContainer {
       display: flex;
       margin-bottom: 10px;
-      
+
       .description {
         flex: 1;
         font-size: 13px;
       }
 
-      div{
+      div {
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .completeBtn{
+        .completeBtn {
           font-size: 15px;
           border: 1px solid #6366f1;
           color: #6366f1;
           background-color: transparent;
           border-radius: 5px;
           padding: 3px;
-          transition: all .3s ease;
+          transition: all 0.3s ease;
           display: flex;
           align-items: center;
           margin-left: auto;
 
-          &:last-child{
+          &:last-child {
             margin-left: 4px;
           }
-  
-          &:hover{
+
+          &:hover {
             background: #6366f1;
             color: #fff;
           }
         }
-        .progressBtn{
+        .progressBtn {
           @keyframes loading {
-            0%{
+            0% {
               transform: rotate(0deg);
             }
-            30%{
+            30% {
               transform: rotate(120deg);
             }
-            100%{
+            100% {
               transform: rotate(360deg);
             }
           }
           animation: loading 1s linear infinite;
         }
       }
-
     }
 
     .footer {
