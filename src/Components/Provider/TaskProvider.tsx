@@ -138,16 +138,28 @@ export const useTasksActions = () => {
   };
 
   const completeTaskHandler = (task: taskItemType) => {
-    toast.success(`${task.title} completed!`, {
-      duration: 4000,
-    });
+    toast.success(
+      `${task.title} ${
+        task.status === "completed" ? "added to do" : "cmopleted"
+      }!`,
+      {
+        duration: 4000,
+      }
+    );
     dispatch({ type: actionCases.COMPLETETASK, payload: task });
   };
 
   const progressTaskHandler = (task: taskItemType) => {
-    toast.success(`${task.title} added to in progess!`, {
-      duration: 4000,
-    });
+    toast.success(
+      `${task.title} ${
+        task.status === "in progress"
+          ? "added to do"
+          : "added to in progress"
+      }`,
+      {
+        duration: 4000,
+      }
+    );
     dispatch({ type: actionCases.PROGRESSTASK, payload: task });
   };
 
