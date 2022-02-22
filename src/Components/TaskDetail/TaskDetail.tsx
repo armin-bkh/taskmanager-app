@@ -58,7 +58,7 @@ const TaskDetail = () => {
           <p>{taskData?.description}</p>
         </div>
       ) : (
-        <p className={styles.message}>--- has no discription</p>
+        <p className={styles.message}>--- has no description</p>
       )}
       <footer className={styles.taskDetailFooter}>
         <span>

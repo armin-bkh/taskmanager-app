@@ -155,7 +155,7 @@ export const useTasksActions = () => {
         task.status === "in progress"
           ? "added to do"
           : "added to in progress"
-      }`,
+      }!`,
       {
         duration: 4000,
       }
