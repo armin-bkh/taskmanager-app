@@ -118,9 +118,14 @@ export const useTasks = () => useContext(TaskContext);
 export const useTasksActions = () => {
   const dispatch = useContext(TaskActionsContext);
   const addTaskHandler = (task: taskItemType) => {
-    toast.success(`${task.title} successfully added!`, {
-      duration: 4000,
-    });
+    toast.success(
+      `${task.title} successfully added ${
+        task.status === "to do" ? "to do" : `to ${task.status}`
+      }!`,
+      {
+        duration: 4000,
+      }
+    );
     dispatch({ type: actionCases.ADDTASK, payload: task });
   };
   const removeTaskHandler = (task: taskItemType) => {
@@ -152,9 +157,7 @@ export const useTasksActions = () => {
   const progressTaskHandler = (task: taskItemType) => {
     toast.success(
       `${task.title} ${
-        task.status === "in progress"
-          ? "added to do"
-          : "added to in progress"
+        task.status === "in progress" ? "added to do" : "added to in progress"
       }!`,
       {
         duration: 4000,
