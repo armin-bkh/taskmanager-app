@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SearchBox from "../Common/SearchBox/SearchBox";
 import { useTasks } from "../Provider/TaskProvider";
 import { taskItemType } from "../Provider/taskProviderTypes.type";
+import SearchedTasks from "../SearchedTasks/SearchedTasks";
 import TaskSection from "../TaskSection/TaskSection";
 import styles from "./TaskList.module.scss";
 
@@ -36,26 +37,28 @@ const TaskList = () => {
   };
 
   return (
-    <div>
-      <div>
-        <SearchBox
-          handleSearch={searchHandler}
-          placeholder="search in tasks..."
-        />
-      </div>
-      <div className={styles.taskList}>
-        {taskStatus.map((status) => (
-          <TaskSection
-            key={status.id}
-            title={status.value}
-            tasks={
-              searchedTasks
-                ? searchedTasks.filter((task) => task.status === status.value)
-                : tasks.filter((task) => task.status === status.value)
-            }
+    <div className={styles.tasksListContainer}>
+      {tasks.length > 0 && (
+        <form className={styles.taskSearchBoxSection}>
+          <SearchBox
+            handleSearch={searchHandler}
+            placeholder="search for tasks..."
           />
-        ))}
-      </div>
+        </form>
+      )}
+      {searchedTasks ? (
+        <SearchedTasks tasks={searchedTasks} />
+      ) : (
+        <div className={styles.taskList}>
+          {taskStatus.map((status) => (
+            <TaskSection
+              key={status.id}
+              title={status.value}
+              tasks={tasks.filter((task) => task.status === status.value)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,16 @@
+.searchedTasksContainer{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: start;
+    height: calc(100% - 65px);
+
+
+    .emptyMessage{
+        text-align: center;
+        color: #6366f1;
+
+        @media screen and (max-width: 767px) {
+            font-size: 20px;
+        }
+    }
+}
