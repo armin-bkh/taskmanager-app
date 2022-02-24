@@ -22,7 +22,7 @@ const TaskItem = ({ task }: taskItemProps) => {
 
   return (
     <div className={styles.taskItemContainer}>
-      <div className={styles.taskItem}>
+      <div className={`${styles.taskItem} ${task.status === "completed" && styles.completedTask}`}>
         <header
           onClick={() => navigate(`/task-${task.id}`, { state: { task } })}
           className={`${styles.header} ${

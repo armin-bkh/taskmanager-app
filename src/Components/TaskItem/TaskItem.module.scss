@@ -5,6 +5,7 @@
     text-decoration: #252525 line-through solid;
   }
 
+  
   .taskItem {
     display: flex;
     flex-flow: column wrap;
@@ -61,7 +62,7 @@
           transition: all 0.3s ease;
           display: flex;
           align-items: center;
-
+          
           &:last-child {
             margin-left: 4px;
           }
@@ -87,6 +88,8 @@
         }
       }
     }
+    
+   
 
     .footer {
       display: flex;
@@ -102,7 +105,7 @@
       }
     }
   }
-
+  
   .buttons {
     z-index: 9999;
     width: 70px;
@@ -159,5 +162,8 @@
       z-index: 10;
       background: #818cf8;
     }
+  }
+  .completedTask{
+    background: #f1f1f1;
   }
 }
