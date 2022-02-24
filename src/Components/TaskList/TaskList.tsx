@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBox from "../Common/SearchBox/SearchBox";
 import { useTasks } from "../Provider/TaskProvider";
 import { taskItemType } from "../Provider/taskProviderTypes.type";
@@ -23,11 +23,17 @@ const taskStatus = [
 
 const TaskList = () => {
   const { tasks } = useTasks();
+  const [search, setSearch] = useState("");
   const [searchedTasks, setSearchedTasks] = useState<taskItemType[] | null>(
     null
   );
 
+  useEffect(() => {
+    searchHandler(search);
+  }, [tasks]);
+
   const searchHandler = (value: string) => {
+    setSearch(value);
     if (value) {
       const searchedTasks = tasks.filter((task) =>
         task.title.toLowerCase().includes(value.toLowerCase())

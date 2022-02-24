@@ -7,10 +7,10 @@ interface searchBoxProps {
 }
 
 const SearchBox = ({ handleSearch, placeholder }: searchBoxProps) => {
-  const [search, setSearch] = useState("");
+  const [value, setValue] = useState("");
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+    setValue(e.target.value);
     handleSearch(e.target.value);
   };
 
@@ -19,7 +19,7 @@ const SearchBox = ({ handleSearch, placeholder }: searchBoxProps) => {
         <input
           className="input"
           type="text"
-          value={search}
+          value={value}
           onChange={changeHandler}
           placeholder={placeholder || ""}
         />
