@@ -32,9 +32,6 @@ export const InputContainer = styled.fieldset<inputContainerProps>`
     height: ${(props) => (props.type === "textarea" ? "150px" : "auto")};
     resize: none;
 
-    &:focus {
-      /* box-shadow: 0 0 5px #0891b2;  */
-    }
   }
   & .error {
     margin-top: 3px;
