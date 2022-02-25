@@ -1,4 +1,4 @@
-import { Aside, NavItem } from "./Aside.style";
+import { Aside, NavItem } from "../styled-components/Aside.style";
 import { IoHome } from "react-icons/io5";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";

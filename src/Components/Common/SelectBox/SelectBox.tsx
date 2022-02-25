@@ -1,5 +1,5 @@
 import Select from "react-select";
-import { InputContainer } from "../Input/InputContainer.style";
+import { InputContainer } from "../../styled-components/InputContainer.style";
 
 type optionType = { value: string; label: string };
 

@@ -1,4 +1,4 @@
-import { Head } from "./Head.style";
+import { Head } from "../styled-components/Head.style";
 import Me from "../../Assets/Images/me.jpeg";
 import { FaTasks } from "react-icons/fa";
 

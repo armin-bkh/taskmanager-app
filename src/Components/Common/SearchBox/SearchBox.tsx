@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { InputContainer } from "../Input/InputContainer.style";
+import { InputContainer } from "../../styled-components/InputContainer.style";
+import { BiSearchAlt } from 'react-icons/bi';
 
 interface searchBoxProps {
   handleSearch: (value: string) => void;
@@ -23,6 +24,7 @@ const SearchBox = ({ handleSearch, placeholder }: searchBoxProps) => {
           onChange={changeHandler}
           placeholder={placeholder || ""}
         />
+        <BiSearchAlt className="icon" />
       </InputContainer>
   );
 };

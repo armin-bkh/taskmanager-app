@@ -8,6 +8,7 @@ export const InputContainer = styled.fieldset<inputContainerProps>`
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
+  position: relative;
 
   & label {
     text-transform: capitalize;
@@ -31,12 +32,19 @@ export const InputContainer = styled.fieldset<inputContainerProps>`
     transition: all 0.3s ease;
     height: ${(props) => (props.type === "textarea" ? "150px" : "auto")};
     resize: none;
-
   }
   & .error {
     margin-top: 3px;
     color: #dc2626;
     margin-left: 10px;
     font-size: 12px;
+  }
+
+  & .icon{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    font-size: 20px;
+    color: #6366f1;
   }
 `;

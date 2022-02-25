@@ -1,4 +1,4 @@
-import { InputContainer } from "./InputContainer.style";
+import { InputContainer } from "../../styled-components/InputContainer.style";
 
 interface inputProps {
   formik: any;
